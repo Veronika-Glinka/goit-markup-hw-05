@@ -51,6 +51,10 @@ img {
   fill: none;
 }
 
+input {
+  outline: none;
+}
+
 /* container */
 
 .container {
@@ -220,6 +224,193 @@ header .container {
   background-color: #404bbf;
 }
 
+/* modal overlay */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(46, 47, 66, 0.4);
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  background-color: #fcfcfc;
+  min-height: 584px;
+  width: 408px;
+  border-radius: 4px;
+  padding: 24px;
+  padding-top: 72px;
+  /* тут падінг зверху буде 72 піскелі так як написаний пізніше общего падінгу для всіх 24піскелі? чи все таки потрібно всім окремо тоді сатвити падінги?  */
+
+  /* цей спосіб класний для анімацій: 50% від розміру батьківського елементу (від вьюпорту) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 50% від розміру самого елементу назад, щоб відцентрувати */
+  transform: translate(-50%, -50%);
+}
+
+.modal-close {
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+
+  /* ставимо кнопку абсолют, батько в неї  .modal який також має абсолют, і цього достатньо.*/
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close:hover {
+  background-color: rgba(64, 75, 191, 1);
+  border: 1px solid rgba(64, 75, 191, 1);
+}
+
+.modal-close:hover .modal-close-icon {
+  fill: white;
+}
+
+.modal-title {
+  text-align: center;
+
+  color: #2e2f42;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.modal-input {
+  width: 100%;
+  height: 40px;
+
+  box-sizing: border-box;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  padding-left: 38px;
+}
+
+.input-wrap {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.input-wrap:focus-within .modal-input {
+  border: 1px solid rgba(77, 90, 229, 1);
+  outline: none;
+}
+
+.input-wrap:focus-within .modal-icons {
+  fill: rgba(77, 90, 229, 1);
+}
+
+.modal-icons {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.modal-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: rgb(142, 143, 153);
+  font-size: 12px;
+  line-height: 1.17em;
+  letter-spacing: 0.04;
+  text-align: left;
+}
+
+.modal-comment {
+  resize: none;
+  width: 360px;
+  height: 120px;
+}
+
+.modal-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-comment::placeholder {
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.modal-comment {
+  padding-left: 16px;
+  padding-top: 8px;
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* Style the checkbox itself (hidden but interactive) */
+.modal-input-checkbox {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* When the checkbox is checked, change background to violet and show the tick */
+.modal-input-checkbox:checked {
+  background-color: rgba(77, 90, 229, 1); /* Violet background */
+  border-color: rgba(77, 90, 229, 1); /* Border color matches the background */
+}
+
+/* Show the check mark when the checkbox is checked */
+.modal-input-checkbox:checked + .checkbox-icon {
+  visibility: visible; /* Make the check mark visible */
+}
+
+/* Hide the check mark by default (before being checked) */
+.checkbox-icon {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  visibility: hidden; /* Hide check mark until checked */
+  fill: white; /* Set the tick color to white */
+}
+
+.checkbox-text {
+  width: 338px;
+  color: rgba(142, 143, 153, 1);
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04rem;
+}
+
+.checkbox-wrap {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.privacy-link {
+  color: rgba(77, 90, 229, 1);
+  text-decoration: underline;
+}
+
 /* values */
 
 .visually-hidden {
@@ -367,6 +558,7 @@ header .container {
 
 .portfolio {
   padding: 120px 0 120px 0;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio:hover {
@@ -501,7 +693,56 @@ header .container {
   fill: #f4f4fd;
 }
 
+.socials-link {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .footer .socials-link:hover,
 .footer .socials-link:focus {
   background-color: #31d0aa;
+}
+
+.footer-email-container {
+  margin-left: 80px;
+}
+
+.input-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.footer-email-input {
+  width: 264px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding-left: 16px;
+  color: white;
+  font-size: 12px;
+}
+
+.footer-email-input::placeholder {
+  color: white;
+  font-size: 12px;
+}
+
+.footer-subscribe-btn {
+  height: 40px;
+  position: relative;
+  padding-right: 50px;
+}
+
+.footer-email-container label {
+  font-size: 16px;
+  color: white;
+}
+
+.footer-icon {
+  position: absolute;
+  top: 8px;
+  right: 24px;
+  fill: white;
 }
