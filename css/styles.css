@@ -443,6 +443,10 @@ header .container {
   margin-right: 8px;
 }
 
+.checkbox-text span {
+  display: inline-flex;
+}
+
 .checkbox-icon {
   position: absolute;
   top: 4px;
