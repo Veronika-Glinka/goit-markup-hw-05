@@ -344,7 +344,7 @@ header .container {
 }
 
 .form-part-wrap {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .input-wrap {
@@ -403,7 +403,6 @@ header .container {
   border-color: #4d5ae5;
 }
 
-/* Style the checkbox itself (hidden but interactive) */
 .modal-input-checkbox {
   appearance: none;
   width: 16px;
@@ -417,16 +416,13 @@ header .container {
   transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* When the checkbox is checked, change background to violet and show the tick */
 .modal-input-checkbox:checked + label .checkbox-icon-span {
-  background-color: #404bbf; /* Violet background */
+  background-color: #404bbf;
   border: none;
-  fill: white; /* Border color matches the background */
 }
 
-/* Show the check mark when the checkbox is checked */
-.modal-input-checkbox:checked + label .checkbox-icon {
-  fill: #f4f4fd; /* Make the check mark visible */
+.modal-input-checkbox:checked + label .checkbox-icon-span .checkbox-icon {
+  fill: #f4f4fd;
 }
 
 /* Hide the check mark by default (before being checked) */
@@ -442,6 +438,7 @@ header .container {
   align-items: center;
   justify-content: center;
   fill: transparent;
+  margin-right: 8px;
 }
 
 .checkbox-icon {
@@ -452,11 +449,14 @@ header .container {
 }
 
 .checkbox-text {
-  width: 338px;
+  width: 360px;
   color: rgba(142, 143, 153, 1);
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
+  align-items: center;
+
+  display: flex;
   align-items: center;
 }
 
@@ -470,6 +470,7 @@ header .container {
 .privacy-link {
   color: rgba(77, 90, 229, 1);
   text-decoration: underline;
+  margin-left: 4px;
 }
 
 /* values */
