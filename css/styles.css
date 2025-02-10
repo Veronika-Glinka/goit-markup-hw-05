@@ -443,27 +443,12 @@ header .container {
   margin-right: 8px;
 }
 
-.checkbox-text span {
-  display: inline-flex;
-}
-
-.checkbox-icon {
-  position: absolute;
-  top: 4px;
-  left: 3px;
-  fill: none;
-}
-
 .checkbox-text {
   width: 360px;
   color: rgba(142, 143, 153, 1);
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  align-items: center;
-
-  display: flex;
-  align-items: center;
 }
 
 .checkbox-wrap {
@@ -471,6 +456,7 @@ header .container {
   gap: 8px;
   margin-bottom: 24px;
   align-items: center;
+  justify-content: center;
 }
 
 .privacy-link {
