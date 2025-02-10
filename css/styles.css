@@ -330,28 +330,33 @@ header .container {
   border-radius: 4px;
   padding-left: 38px;
 
-  background-color: transparent
+  background-color: transparent;
   outline: transparent;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-input:focus {
+  border-color: #4d5ae5;
+}
+
+.modal-input:focus + .modal-icons {
+  fill: #4d5ae5;
+}
+
 .form-part-wrap {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .input-wrap {
   position: relative;
 }
 
-
-
 .modal-icons {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 16px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
-  
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-label {
@@ -371,9 +376,9 @@ header .container {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  color: rgba(46, 47, 66, 0.4); 
+  color: rgba(46, 47, 66, 0.4);
   border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px; 
+  border-radius: 4px;
 }
 
 .modal-btn {
@@ -386,11 +391,16 @@ header .container {
 }
 
 .modal-comment {
-  padding-left: 16px;
-  padding-top: 8px;
+  padding: 8px 16px;
   font-size: 12px;
   font-family: Roboto, sans-serif;
   letter-spacing: 0.04em;
+  outline: transparent;
+  background-color: transparent;
+}
+
+.modal-comment:focus {
+  border-color: #4d5ae5;
 }
 
 /* Style the checkbox itself (hidden but interactive) */
@@ -409,14 +419,14 @@ header .container {
 
 /* When the checkbox is checked, change background to violet and show the tick */
 .modal-input-checkbox:checked + label .checkbox-icon-span {
-  background-color: rgba(77, 90, 229, 1); /* Violet background */
-  border:none; 
-  fill: white;/* Border color matches the background */
+  background-color: #404bbf; /* Violet background */
+  border: none;
+  fill: white; /* Border color matches the background */
 }
 
 /* Show the check mark when the checkbox is checked */
 .modal-input-checkbox:checked + label .checkbox-icon {
-  visibility: visible; /* Make the check mark visible */
+  fill: #f4f4fd; /* Make the check mark visible */
 }
 
 /* Hide the check mark by default (before being checked) */
@@ -424,21 +434,21 @@ header .container {
   width: 16px;
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 2px; 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-flex; 
+  border-radius: 2px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   fill: transparent;
 }
 
-
 .checkbox-icon {
   position: absolute;
   top: 4px;
   left: 3px;
-  visibility: hidden; /* Hide check mark until checked */
-  fill: white; /* Set the tick color to white */
+  fill: none;
 }
 
 .checkbox-text {
