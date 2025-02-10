@@ -226,6 +226,18 @@ header .container {
 
 /* modal overlay */
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -331,14 +343,7 @@ header .container {
   position: relative;
 }
 
-.input-wrap:focus-within .modal-input {
-  border: 1px solid rgba(77, 90, 229, 1);
-  outline: none;
-}
 
-.input-wrap:focus-within .modal-icons {
-  fill: rgba(77, 90, 229, 1);
-}
 
 .modal-icons {
   position: absolute;
@@ -403,13 +408,14 @@ header .container {
 }
 
 /* When the checkbox is checked, change background to violet and show the tick */
-.modal-input-checkbox:checked + .checkbox-icon-span {
+.modal-input-checkbox:checked + label .checkbox-icon-span {
   background-color: rgba(77, 90, 229, 1); /* Violet background */
-  border-color:none; /* Border color matches the background */
+  border:none; 
+  fill: white;/* Border color matches the background */
 }
 
 /* Show the check mark when the checkbox is checked */
-.modal-input-checkbox:checked + .checkbox-icon {
+.modal-input-checkbox:checked + label .checkbox-icon {
   visibility: visible; /* Make the check mark visible */
 }
 
@@ -441,12 +447,14 @@ header .container {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
+  align-items: center;
 }
 
 .checkbox-wrap {
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
+  align-items: center;
 }
 
 .privacy-link {
